@@ -1,25 +1,24 @@
 package net.techeese.tbgspring.POJO;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.UpdateTimestamp;
 
+import lombok.Data;
 import java.time.Instant;
 
 @Data
 @Entity
-@DynamicUpdate
 @DynamicInsert
-@Table(name = "metal")
-public class Metal {
+@DynamicUpdate
+@Table(name = "tray")
+public class Tray {
 
     @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @Column(name = "name")
     private String name;
@@ -27,15 +26,16 @@ public class Metal {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "sell_price")
-    private Integer sell_price;
+    @Column(name = "upper_limit_weight")
+    private Float upper_limit_weight;
 
-    @Column(name = "buy_price")
-    private Integer buy_price;
+    @Column(name = "lower_limit_weight")
+    private Float lower_limit_weight;
 
     @CreationTimestamp
     private Instant created_on;
 
     @UpdateTimestamp
-    private Instant updated_on;
+    private Instant updated_on; 
+    
 }

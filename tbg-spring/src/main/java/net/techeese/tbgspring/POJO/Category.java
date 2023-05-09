@@ -11,6 +11,7 @@ import lombok.Data;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "designs")
-public class Designs {
+@Table(name = "category")
+public class Category {
+    
 }

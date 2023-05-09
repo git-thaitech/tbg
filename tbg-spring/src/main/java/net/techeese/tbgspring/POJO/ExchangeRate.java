@@ -1,2 +1,4 @@
-package net.techeese.tbgspring.POJO;public class ExchangeRate {
+package net.techeese.tbgspring.POJO;
+
+public class ExchangeRate {
 }

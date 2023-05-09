@@ -1,14 +1,19 @@
 package net.techeese.tbgspring.POJO;
 
 import jakarta.persistence.*;
+
+import java.time.Instant;
+
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @DynamicUpdate
 @DynamicInsert
-@Table(name = "employee")
-public class Employee{
+@Table(name = "customer")
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -23,8 +28,11 @@ public class Employee{
 
     private String address;
 
-//    private Date enroll_date;
+    @CreationTimestamp
+    private Instant created_on;
 
+    @UpdateTimestamp
+    private Instant updated_on;
 
     public void setId(Long id) {
         this.id = id;

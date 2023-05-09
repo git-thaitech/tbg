@@ -2,6 +2,7 @@ package net.techeese.tbgspring.POJO;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
 import lombok.Data;
 import org.hibernate.annotations.*;
@@ -14,7 +15,7 @@ import java.util.Date;
 @Entity
 @DynamicUpdate
 @DynamicInsert
-@Table(name = "user")
+@Table(name = "user", indexes = @Index(columnList = "id"))
 public class User {
 
     private static final long serialVersionUID = 1L;
