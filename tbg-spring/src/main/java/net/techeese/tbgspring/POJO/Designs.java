@@ -1,12 +1,9 @@
 package net.techeese.tbgspring.POJO;
 
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.Data;
 
 @Data
 @Entity
@@ -15,5 +12,10 @@ import lombok.Data;
 @Table(name = "designs")
 public class Designs {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
+
+    public Designs() {
+    }
 }

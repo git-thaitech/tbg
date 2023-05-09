@@ -9,13 +9,12 @@ import org.hibernate.annotations.DynamicUpdate;
 @Entity
 @DynamicUpdate
 @DynamicInsert
-@Table(name = "exchange_rate")
-public class ExchangeRate {
+@Table(name = "orders")
+public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+    private Long id;
 
-    public ExchangeRate() {
-    }
+    @ManyToOne
+    @JoinColumn(name = "customer")
+    private Customer customer;
 }

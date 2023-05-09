@@ -2,20 +2,20 @@ package net.techeese.tbgspring.POJO;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import jakarta.persistence.Index;
-import jakarta.persistence.Table;
 import lombok.Data;
-import org.hibernate.annotations.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import java.time.Instant;
 import java.util.Date;
 
-@Data //This annotation is to create or alter the table in database
+@Data //This annotation is to create or alter the table in database, and don't need to add getter setter
 @Entity
 @DynamicUpdate
 @DynamicInsert
-@Table(name = "user", indexes = @Index(columnList = "id"))
+@Table(name = "user", indexes = @Index(columnList = "id, username"))
 public class User {
 
     private static final long serialVersionUID = 1L;
@@ -25,13 +25,13 @@ public class User {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     private String username;
 
     @Column(name = "password")
     private String password;
 
-    @Column(name = "NIN")
+    @Column(name = "NIN", unique = true)
     private String NIN;
 
     @Column(name = "first_name")
