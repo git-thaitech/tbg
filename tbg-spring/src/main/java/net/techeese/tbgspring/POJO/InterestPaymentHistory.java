@@ -13,16 +13,28 @@ import java.time.Instant;
 @Entity
 @DynamicUpdate
 @DynamicInsert
-@Table(name = "orders")
-public class Order {
+@Table(name = "interest_payment_history", indexes = @Index(columnList = "id"))
+public class InterestPaymentHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer")
-    private Customer customer;
+    @Column(name = "ordinal")
+    private Integer ordinal;
+
+    @ManyToOne
+    @JoinColumn(name = "loan_agreement_id")
+    private LoanAgreement loan_agreement;
+
+    @Column(name = "interest_payment_amount")
+    private Double interest_payment_amount;
+
+    @Column(name = "from_date")
+    private Instant from_date;
+
+    @Column(name = "to_date")
+    private Instant to_date;
 
     @CreationTimestamp
     private Instant created_on;

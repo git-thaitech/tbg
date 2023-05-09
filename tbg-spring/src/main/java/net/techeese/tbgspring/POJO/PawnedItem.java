@@ -13,8 +13,8 @@ import java.time.Instant;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "pawn_product")
-public class PawnProduct {
+@Table(name = "pawned_item")
+public class PawnedItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,9 +22,13 @@ public class PawnProduct {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "metal_id")
     private Metal metal;
+
+    @ManyToOne
+    @JoinColumn(name = "loan_agreement_id")
+    private LoanAgreement loan_agreement;
 
     @Column(name = "total_weight")
     private Float total_weight;

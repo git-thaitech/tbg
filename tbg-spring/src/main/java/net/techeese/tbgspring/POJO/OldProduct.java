@@ -26,7 +26,7 @@ public class OldProduct {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "metal_id")
     private Metal metal;
 

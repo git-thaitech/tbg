@@ -13,15 +13,15 @@ import java.time.Instant;
 @Entity
 @DynamicUpdate
 @DynamicInsert
-@Table(name = "pawn_loan_agreement", indexes = @Index(columnList = "id, barcode1, barcode2"))
-public class PawnLoanAgreement {
+@Table(name = "loan_agreement", indexes = @Index(columnList = "id, barcode1, barcode2"))
+public class LoanAgreement {
 
     private enum STATUS {
         PERFORMING, // bình thường
         LATE, // trễ hạn đóng lãi
         OVERDUE, // quá hạn đóng lãi
-        DONE, // đã chuộc
-        DEFAULT, // đã phát mãi
+        REDEEMED, // đã chuộc
+        PULLED, // đã phát mãi
         CANCEL // huỷ đơn cầm
     }
 
@@ -45,6 +45,10 @@ public class PawnLoanAgreement {
     @Column(name = "redemption_day")
     private Instant redemption_day;
 
+    @ManyToOne
+    @JoinColumn(name = "interest_rate_id")
+    private InterestRate interest_rate;
+
     @Column(name = "status")
     private STATUS status;
 
@@ -54,6 +58,6 @@ public class PawnLoanAgreement {
     @UpdateTimestamp
     private Instant updated_on;
 
-    public PawnLoanAgreement() {
+    public LoanAgreement() {
     }
 }

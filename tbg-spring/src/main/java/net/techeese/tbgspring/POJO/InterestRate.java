@@ -13,20 +13,25 @@ import java.time.Instant;
 @Entity
 @DynamicUpdate
 @DynamicInsert
-@Table(name = "orders")
-public class Order {
+@Table(name = "interest_rate")
+public class InterestRate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer")
-    private Customer customer;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "description")
+    private String description;
 
     @CreationTimestamp
     private Instant created_on;
 
     @UpdateTimestamp
     private Instant updated_on;
+
+    public InterestRate() {
+    }
 }
