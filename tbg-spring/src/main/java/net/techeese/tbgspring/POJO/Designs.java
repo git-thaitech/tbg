@@ -1,5 +1,6 @@
 package net.techeese.tbgspring.POJO;
 
+import jakarta.persistence.Id;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -13,4 +14,6 @@ import lombok.Data;
 @DynamicUpdate
 @Table(name = "designs")
 public class Designs {
+    @Id
+    private Integer id;
 }

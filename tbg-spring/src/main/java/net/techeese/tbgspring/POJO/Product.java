@@ -55,8 +55,17 @@ public class Product {
     @Column(name = "processing_price")
     private Integer processing_price;
 
-    @Column(name = "photo")
-    private String photo;
+    @Column(name = "status")
+    private Integer status; //1 available, 2 sold, 0 destroy
+
+    @Column(name = "type")
+    private String type; //N is new, R is recycled
+
+    @Column(name = "photo1")
+    private String photo1;
+
+    @Column(name = "photo2")
+    private String photo2;
 
     @CreationTimestamp
     private Instant created_on;

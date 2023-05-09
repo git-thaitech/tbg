@@ -41,4 +41,71 @@ public class TrayTrackRecord {
 
     @UpdateTimestamp
     private Instant updated_on;
+
+    public TrayTrackRecord() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Tray getTray() {
+        return tray;
+    }
+
+    public void setTray(Tray tray) {
+        this.tray = tray;
+    }
+
+    public Integer getNumber_of_products() {
+        return number_of_products;
+    }
+
+    public void setNumber_of_products(Integer number_of_products) {
+        this.number_of_products = number_of_products;
+    }
+
+    public Float getTotal_tray_weight() {
+        return total_tray_weight;
+    }
+
+    public void setTotal_tray_weight(Float total_tray_weight) {
+        this.total_tray_weight = total_tray_weight;
+    }
+
+    public Instant getTracking_time() {
+        return tracking_time;
+    }
+
+    public void setTracking_time(Instant tracking_time) {
+        this.tracking_time = tracking_time;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public Instant getCreated_on() {
+        return created_on;
+    }
+
+    public void setCreated_on(Instant created_on) {
+        this.created_on = created_on;
+    }
+
+    public Instant getUpdated_on() {
+        return updated_on;
+    }
+
+    public void setUpdated_on(Instant updated_on) {
+        this.updated_on = updated_on;
+    }
 }
