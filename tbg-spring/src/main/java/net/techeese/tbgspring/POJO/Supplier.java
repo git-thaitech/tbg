@@ -11,13 +11,12 @@ import java.time.Instant;
 
 @Data
 @Entity
-@DynamicUpdate
 @DynamicInsert
-@Table(name = "metal")
-public class Metal {
-
+@DynamicUpdate
+@Table(name = "supplier")
+public class Supplier {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
@@ -27,11 +26,11 @@ public class Metal {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "sell_price")
-    private Integer sell_price;
+    @Column(name = "note", columnDefinition="TEXT")
+    private String note;
 
-    @Column(name = "buy_price")
-    private Integer buy_price;
+    @Column(name = "address")
+    private String address;
 
     @CreationTimestamp
     private Instant created_on;
@@ -39,7 +38,7 @@ public class Metal {
     @UpdateTimestamp
     private Instant updated_on;
 
-    public Metal() {
+    public Supplier() {
     }
 
     public Integer getId() {
@@ -66,20 +65,20 @@ public class Metal {
         this.description = description;
     }
 
-    public Integer getSell_price() {
-        return sell_price;
+    public String getNote() {
+        return note;
     }
 
-    public void setSell_price(Integer sell_price) {
-        this.sell_price = sell_price;
+    public void setNote(String note) {
+        this.note = note;
     }
 
-    public Integer getBuy_price() {
-        return buy_price;
+    public String getAddress() {
+        return address;
     }
 
-    public void setBuy_price(Integer buy_price) {
-        this.buy_price = buy_price;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Instant getCreated_on() {
