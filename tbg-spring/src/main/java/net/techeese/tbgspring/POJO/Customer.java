@@ -3,6 +3,7 @@ package net.techeese.tbgspring.POJO;
 import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.util.Date;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
@@ -12,16 +13,26 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Entity
 @DynamicUpdate
 @DynamicInsert
-@Table(name = "customer")
+@Table(name = "customer", indexes = @Index(columnList = "id, NIN, phone"))
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "NIN")
+    private String NIN;
+
+    @Column(name = "first_name")
     private String first_name;
+
+    @Column(name = "last_name")
     private String last_name;
 
+    @Column(name = "DOB")
+    private Date DOB;
+
+    @Column(name = "email")
     private String email;
 
     private String phone;
@@ -109,5 +120,21 @@ public class Customer {
 
     public void setUpdated_on(Instant updated_on) {
         this.updated_on = updated_on;
+    }
+
+    public String getNIN() {
+        return NIN;
+    }
+
+    public void setNIN(String NIN) {
+        this.NIN = NIN;
+    }
+
+    public Date getDOB() {
+        return DOB;
+    }
+
+    public void setDOB(Date DOB) {
+        this.DOB = DOB;
     }
 }
