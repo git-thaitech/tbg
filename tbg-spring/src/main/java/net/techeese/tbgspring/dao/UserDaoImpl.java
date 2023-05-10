@@ -1,4 +1,4 @@
-package net.techeese.tbgspring.dao.Impl;
+package net.techeese.tbgspring.dao;
 
 import net.techeese.tbgspring.dao.IUserDao;
 
