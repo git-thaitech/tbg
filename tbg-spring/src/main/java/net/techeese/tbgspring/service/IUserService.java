@@ -1,24 +1,23 @@
 package net.techeese.tbgspring.service;
 
-import org.hibernate.mapping.List;
+import net.techeese.tbgspring.wrapper.UserWrapper;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
-@Service
 public interface IUserService {
-    static ResponseEntity<String> signUp(Map<String, String> requestMap);
+    public static ResponseEntity<String> signUp(Map<String, String> requestMap);
 
-    ResponseEntity<String> login(Map<String, String> requestMap);
+    public ResponseEntity<String> login(Map<String, String> requestMap);
 
-    ResponseEntity<List> getAllUsers();
+    public ResponseEntity<List<UserWrapper>> getAllUsers();
 
-    ResponseEntity<String> update(Map<String, String> requestMap);
+    public ResponseEntity<String> update(Map<String, String> requestMap);
 
-    ResponseEntity<String> checkToken();
+    public ResponseEntity<String> checkToken();
 
-    ResponseEntity<String> changePassword(Map<String, String> requestMap);
+    public ResponseEntity<String> changePassword(Map<String, String> requestMap);
 
-    ResponseEntity<String> forgotPassword(Map<String, String> requestMap);
+    public ResponseEntity<String> forgotPassword(Map<String, String> requestMap);
 }

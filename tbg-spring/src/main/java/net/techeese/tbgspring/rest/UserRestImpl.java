@@ -1,19 +1,17 @@
-package net.techeese.tbgspring.rest.Impl;
+package net.techeese.tbgspring.rest;
 
 import lombok.RequiredArgsConstructor;
 import net.techeese.tbgspring.constants.TbgConstant;
-import net.techeese.tbgspring.rest.IUserRest;
 import net.techeese.tbgspring.service.IUserService;
 import net.techeese.tbgspring.utils.TbgUtils;
 import net.techeese.tbgspring.wrapper.UserWrapper;
-import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 @RequiredArgsConstructor
 @RestController
@@ -25,7 +23,7 @@ public class UserRestImpl implements IUserRest {
     @Override
     public ResponseEntity<String> signUp(Map<String, String> requestMap) {
         try{
-            return iUserService.signUp(requestMap);
+            return IUserService.signUp(requestMap);
         } catch (Exception exception){
             exception.printStackTrace();
         }

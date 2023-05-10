@@ -1,4 +1,4 @@
-package net.techeese.tbgspring.service.Impl;
+package net.techeese.tbgspring.service;
 
 import net.techeese.tbgspring.service.IProductService;
 
